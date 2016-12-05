@@ -3,13 +3,43 @@
 <head>
   <meta charset="utf-8">
   <title>jQuery UIの練習</title>
-  <link rel="stylesheet" href="themes/base/jquery.ui.all.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 </head>
 <body>
-<script>
 
+<div id="box">box
+  <div class="handle">drag here</div>
+  <div class="cancel">not here</div>
+</div>
+
+<style>
+#box {
+  width: 100px;
+  height: 100px;
+  background: green;
+}
+</style>
   
+
+  <!-- draggableを使って「ドラッグ&ドロップ」機能を実装する -->
+  <!-- 水平にのみ動くaxisオプションを追加 -->
+  <!-- opacityオプションを使うことで、ドラッグしている間、図形を透明にできる -->
+  <!-- handleオプションを使うことで、ドラッグできる部位を指定できる -->
+  <!-- cancelオプションを使うことで、cancel以外の部分を指定してドラッグできる -->
+<script>
+  $(function() {
+    $('#box').draggable({
+      // axis: "x"
+      opacity: 0.5,
+      // handle: '.handle'
+      // cancel: '.cancel'
+      drag: function(event, ui) {
+        console.log(ui .position .left);
+      }
+    });
+  });
 </script>
 </body>
 </html>
