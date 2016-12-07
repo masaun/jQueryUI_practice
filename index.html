@@ -30,18 +30,16 @@
 </style>
 
 
+<!-- リサイズが可能になる実装 -->
 <script>
   $(function() {
-    $('.box').draggable({
-      helper: 'clone'
-    });
-    $('.target').droppable({
-      accept: '.box',
-      hoverClass: 'hover',
-      tolerance: 'fit',
-      drop: function(event, ui) {
-        ui.draggable.clone().appendTo(this);
-        console.log('dropped!');
+    $('.box').draggable().resizable ({
+      handles : 'all',
+      // 縦横比を保ったまま拡大縮小ができる
+      aspectRatio: true,
+      // 移動した図形のコンソールログを取る
+      stop: function (event, ui) {
+        console.log(ui.size.height, ui.size.width);
       }
     });
   });
