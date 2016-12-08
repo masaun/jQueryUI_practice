@@ -24,12 +24,20 @@
 </style>
 
 <!-- セレクトされた要素が配列として表示される -->
+<!-- spliceで選択解除 -->
 <script>
   $(function() {
     var selected = new Array();
     $('#selectable').selectable({
       selected: function(event, ui) {
-        selected.push(ui.selected.id);
+        if (selected.indexOf(ui.selected.id) == -1) {
+          selected.push(ui.selected.id);
+        }
+        console.log(selected);
+      },
+      unselected: function(event, ui) {
+        var id = ui.unselected.id;
+        selected.splice(selected.indexOf(id), 1);
         console.log(selected);
       }
     });
