@@ -9,23 +9,7 @@
 </head>
 <body>
 
-<!-- accordionでアコーディオン形式を実装 -->
-
-  <div id="accordion">
-    
-    <h3><a href="">タイトル</a></h3>
-    <div>こんにちは。</div>
-
-    <h3><a href="">タイトル</a></h3>
-    <div>こんにちは。</div>
-
-    <h3><a href="">タイトル</a></h3>
-    <div>こんにちは。</div>
-
-    <h3><a href="">タイトル</a></h3>
-    <div>こんにちは。</div>
-
-  </div>
+<input type="text" id="langs">
 
 <style>
 </style>
@@ -33,7 +17,10 @@
 
 <script>
   $(function() {
-    $('#accordion').accordion();
+    var langs = ["ja", "en", "cn", "fr", "sp", "田中", "田口"];
+    $('#langs').autocomplete({
+      source: langs
+    });
   });
 </script>
 
