@@ -9,23 +9,20 @@
 </head>
 <body>
 
-  <button>クリック</button>
+<input type="text" id="datepicker">
 
-  <!-- チェック済みのボタンを示してくれる -->
-  <input type="checkbox" id="check"><label for="check">クリック</label>
-
-  <div id="set">
-  <input type="radio" name="radio" id="radio1"><label for="radio1">1</label>
-  <input type="radio" name="radio" id="radio2"><label for="radio2">2</label>
-  <input type="radio" name="radio" id="radio3"><label for="radio3">3</label>
-  </div>
+<!-- 日付カレンダーのdatepickerの実装。idで宣言後、scriptのところで呼び出す -->
 
 <script>
   $(function() {
-    $('button').button();
-    $('#check').button();
-    $('input[type = redio]').button();
-    $('#set').buttonset();
+    $('#datepicker').datepicker({
+      // 年月月日を並び替えるオプション
+      dateFormat: "yy-mm-dd",
+      numberOfMonths: 3,
+      // 現在の日付の二日前〜1か月先までを表示させたい場合
+      minDate: -2,
+      maxDate: "+1M"
+    });
   });
 </script>
 
