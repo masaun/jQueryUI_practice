@@ -9,18 +9,23 @@
 </head>
 <body>
 
-<input type="text" id="langs">
+  <button>クリック</button>
 
-<style>
-</style>
+  <!-- チェック済みのボタンを示してくれる -->
+  <input type="checkbox" id="check"><label for="check">クリック</label>
 
+  <div id="set">
+  <input type="radio" name="radio" id="radio1"><label for="radio1">1</label>
+  <input type="radio" name="radio" id="radio2"><label for="radio2">2</label>
+  <input type="radio" name="radio" id="radio3"><label for="radio3">3</label>
+  </div>
 
 <script>
   $(function() {
-    var langs = ["ja", "en", "cn", "fr", "sp", "田中", "田口"];
-    $('#langs').autocomplete({
-      source: langs
-    });
+    $('button').button();
+    $('#check').button();
+    $('input[type = redio]').button();
+    $('#set').buttonset();
   });
 </script>
 
