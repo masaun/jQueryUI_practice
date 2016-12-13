@@ -9,23 +9,25 @@
 </head>
 <body>
 
-  <div id="bar" style="width: 200px"></div>
+  <div id="tabs">
+    <ul>
+      <li><a href="#menu1">メニュー1</a></li>
+      <li><a href="#menu2">メニュー2</a></li>
+      <li><a href="#menu3">メニュー3</a></li>
+    </ul>
 
-  <div id="slider" style="width: 200px; margin-top: 20px"></div>
+    <div id="menu1">menu 1</div>
+    <div id="menu2">menu 2</div>
+    <div id="menu3">menu 3</div>
 
-<!-- 何らかの進行状況を可視化したい場合に役立つprogressbar実装 -->
+  </div>
+
+
+<!-- タブの実装 -->
 <script>
   $(function() {
-    $('#bar').progressbar({
-      value: 33
-    });
-    // sliderオプションで。ケージ内を自由にスライドさせるボタンを実装
-    $('#slider').slider({
-      slide: function(event, ui) {
-        console.log(ui.value);
-        // sliderボタンとprogressbarを連動させる実装
-        $('#bar').progressbar('option', 'value', ui.value);
-      }
+    $('#tabs').tabs({
+      selected: 2
     });
   });
 </script>
