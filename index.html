@@ -9,19 +9,28 @@
 </head>
 <body>
 
-<input type="text" id="datepicker">
+  <button>開く</button>
 
-<!-- 日付カレンダーのdatepickerの実装。idで宣言後、scriptのところで呼び出す -->
+  <div id="msg">
+    初めまして。こんにちは。
+  </div>
 
+<!-- ダイアログ（ポップアップ）表示 -->
 <script>
   $(function() {
-    $('#datepicker').datepicker({
-      // 年月月日を並び替えるオプション
-      dateFormat: "yy-mm-dd",
-      numberOfMonths: 3,
-      // 現在の日付の二日前〜1か月先までを表示させたい場合
-      minDate: -2,
-      maxDate: "+1M"
+    $('button').click(function() {
+      $('#msg').dialog('open');
+    });
+    $('#msg').dialog({
+      autoOpen: false,
+      buttons: {
+        "OK": function() {
+          $(this).dialog('close');
+        }
+      },
+      title: "title",
+      // モーダル実装→ユーザに何らかの操作に集中してもらいたい時に使える
+      modal: true
     });
   });
 </script>
