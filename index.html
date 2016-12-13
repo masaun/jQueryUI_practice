@@ -9,28 +9,23 @@
 </head>
 <body>
 
-  <button>開く</button>
+  <div id="bar" style="width: 200px"></div>
 
-  <div id="msg">
-    初めまして。こんにちは。
-  </div>
+  <div id="slider" style="width: 200px; margin-top: 20px"></div>
 
-<!-- ダイアログ（ポップアップ）表示 -->
+<!-- 何らかの進行状況を可視化したい場合に役立つprogressbar実装 -->
 <script>
   $(function() {
-    $('button').click(function() {
-      $('#msg').dialog('open');
+    $('#bar').progressbar({
+      value: 33
     });
-    $('#msg').dialog({
-      autoOpen: false,
-      buttons: {
-        "OK": function() {
-          $(this).dialog('close');
-        }
-      },
-      title: "title",
-      // モーダル実装→ユーザに何らかの操作に集中してもらいたい時に使える
-      modal: true
+    // sliderオプションで。ケージ内を自由にスライドさせるボタンを実装
+    $('#slider').slider({
+      slide: function(event, ui) {
+        console.log(ui.value);
+        // sliderボタンとprogressbarを連動させる実装
+        $('#bar').progressbar('option', 'value', ui.value);
+      }
     });
   });
 </script>
