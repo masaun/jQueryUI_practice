@@ -9,37 +9,26 @@
 </head>
 <body>
 
-<div id="box">box
-  <div class="handle">drag here</div>
-  <div class="cancel">not here</div>
-</div>
+  <div id="box">ボックス</div>
 
-<style>
-#box {
-  width: 100px;
-  height: 100px;
-  background: green;
-}
-</style>
-  
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+  </style>
 
-  <!-- draggableを使って「ドラッグ&ドロップ」機能を実装する -->
-  <!-- 水平にのみ動くaxisオプションを追加 -->
-  <!-- opacityオプションを使うことで、ドラッグしている間、図形を透明にできる -->
-  <!-- handleオプションを使うことで、ドラッグできる部位を指定できる -->
-  <!-- cancelオプションを使うことで、cancel以外の部分を指定してドラッグできる -->
+<!-- ボックスを4分割でエフェクトさせる実装 -->
 <script>
   $(function() {
-    $('#box').draggable({
-      // axis: "x"
-      opacity: 0.5,
-      // handle: '.handle'
-      // cancel: '.cancel'
-      drag: function(event, ui) {
-        console.log(ui .position .left);
-      }
+    $('#box').click(function() {
+      $(this).effect("explode", {
+        pieces: 4
+      });
     });
   });
 </script>
+
 </body>
 </html>
