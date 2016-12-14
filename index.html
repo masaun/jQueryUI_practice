@@ -9,25 +9,23 @@
 </head>
 <body>
 
-  <div id="tabs">
-    <ul>
-      <li><a href="#menu1">メニュー1</a></li>
-      <li><a href="#menu2">メニュー2</a></li>
-      <li><a href="#menu3">メニュー3</a></li>
-    </ul>
+  <div id="box">ボックス</div>
 
-    <div id="menu1">menu 1</div>
-    <div id="menu2">menu 2</div>
-    <div id="menu3">menu 3</div>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+  </style>
 
-  </div>
-
-
-<!-- タブの実装 -->
+<!-- ボックスを4分割でエフェクトさせる実装 -->
 <script>
   $(function() {
-    $('#tabs').tabs({
-      selected: 2
+    $('#box').click(function() {
+      $(this).effect("explode", {
+        pieces: 4
+      });
     });
   });
 </script>
